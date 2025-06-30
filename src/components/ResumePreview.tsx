@@ -45,17 +45,18 @@ export default function ResumePreview() {
 
   return (
     <div>
-      <PDFDownloadLink document={MyDoc} fileName="resume.pdf">
-        {({ loading }) =>
-          loading ? (
-            <button disabled>Preparing PDF...</button>
-          ) : (
-            <button className="bg-green-600 text-white px-3 py-1 rounded">
-              Download PDF
-            </button>
-          )
-        }
-      </PDFDownloadLink>
+      {/* @ts-ignore */}
+       <PDFDownloadLink document={MyDoc} fileName="resume.pdf">
+         {({ loading }: any) =>
+           loading ? (
+             <button disabled>Preparing PDF...</button>
+           ) : (
+             <button className="bg-green-600 text-white px-3 py-1 rounded">
+               Download PDF
+             </button>
+           )
+         }
+       </PDFDownloadLink>
     </div>
   );
 }
