@@ -16,7 +16,7 @@
     "autoprefixer": "10.4.14",
     "@reduxjs/toolkit": "1.9.5",
     "react-redux": "8.0.5",
-    "react-pdf": "2.0.21",
+    "@react-pdf/renderer": "^3.0.0",
     "openai": "3.2.1"
   }
 }
