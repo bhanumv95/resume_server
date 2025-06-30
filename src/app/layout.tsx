@@ -1,6 +1,6 @@
 'use client';
 
-import './globals.css';
+import '../styles/globals.css';
 import { ReactNode, useEffect, useState } from 'react';
 import { Provider } from 'react-redux';
 import store from '../store/resumeSlice';
