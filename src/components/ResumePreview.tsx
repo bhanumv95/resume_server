@@ -45,8 +45,8 @@ export default function ResumePreview() {
 
   return (
     <div>
-      {/* @ts-ignore */}
        <PDFDownloadLink document={MyDoc} fileName="resume.pdf">
+         {/* @ts-ignore */}
          {({ loading }: any) =>
            loading ? (
              <button disabled>Preparing PDF...</button>
