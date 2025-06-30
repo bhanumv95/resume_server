@@ -1,9 +1,13 @@
 'use client';
 
+import dynamic from 'next/dynamic';
 import { Page, Text, View, Document } from '@react-pdf/renderer';
 import { useSelector } from 'react-redux';
 import { RootState } from '../store/resumeSlice';
-import { PDFDownloadLink } from '@react-pdf/renderer';
+const PDFDownloadLink = dynamic(
+   () => import('@react-pdf/renderer').then(mod => mod.PDFDownloadLink),
+   { ssr: false }
+);
 
 export default function ResumePreview() {
   const { profile, summary, skills, experience } = useSelector(
@@ -44,19 +48,15 @@ export default function ResumePreview() {
   );
 
   return (
-    <div>
-       <PDFDownloadLink document={MyDoc} fileName="resume.pdf">
-         {/* @ts-ignore */}
-         {({ loading }: any) =>
-           loading ? (
-             <button disabled>Preparing PDF...</button>
-           ) : (
-             <button className="bg-green-600 text-white px-3 py-1 rounded">
-               Download PDF
-             </button>
-           )
-         }
-       </PDFDownloadLink>
-    </div>
-  );
+  <div>
+    {/* @ts-ignore */}
+    <PDFDownloadLink document={MyDoc} fileName="resume.pdf">
+      {({ loading }: any) =>
+        loading
+          ? <button disabled>Preparing PDF…</button>
+          : <button className="bg-green-600 text-white px-3 py-1 rounded">Download PDF</button>
+      }
+    </PDFDownloadLink>
+  </div>
+);
 }
