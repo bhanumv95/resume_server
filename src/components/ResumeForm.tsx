@@ -24,3 +24,5 @@ export default function ResumeForm() {
         Generate Resume
       </button>
     </form>
+    );
+}
