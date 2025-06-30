@@ -1,5 +1,9 @@
 import Link from 'next/link';
-import TemplateCard from '../components/TemplateCard';
+import dynamic from 'next/dynamic';
+const TemplateCard = dynamic(
+  () => import('../components/TemplateCard'),
+  { ssr: false }
+);
 import { topTemplates } from '../../data/templates';
 
 export default function HomePage() {
