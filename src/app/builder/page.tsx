@@ -1,6 +1,6 @@
 "use client";
-import ResumeForm from '../../../components/ResumeForm';
-import ResumePreview from '../../../components/ResumePreview';
+import ResumeForm from '../../components/ResumeForm';
+import ResumePreview from '../../components/ResumePreview';
 import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
 
